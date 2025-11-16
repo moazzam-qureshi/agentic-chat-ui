@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Thread, ThreadCreate } from '../types/chat';
 import AuthService from '../services/auth.service';
+import { config } from '../config/env';
 
 interface SidebarProps {
   currentThreadId: string | null;
@@ -14,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   currentThreadId,
   onThreadSelect,
   onNewChat,
-  apiBaseUrl = 'http://localhost:8000',
+  apiBaseUrl = config.apiBaseUrl,
   userId = 'default-user'
 }) => {
   const [threads, setThreads] = useState<Thread[]>([]);

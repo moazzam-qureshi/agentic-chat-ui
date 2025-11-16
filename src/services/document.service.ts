@@ -8,7 +8,9 @@ import type {
 } from '../types/document';
 import AuthService from './auth.service';
 
-const API_BASE_URL = 'http://localhost:8000';
+import { config } from '../config/env';
+
+const API_BASE_URL = config.apiBaseUrl;
 
 class DocumentService {
   static async uploadDocument(file: File): Promise<Document> {

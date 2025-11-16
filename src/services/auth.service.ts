@@ -1,6 +1,8 @@
 import type { User, UserCreate, UserUpdate, Token, LoginRequest } from '../types/auth';
 
-const API_BASE_URL = 'http://localhost:8000';
+import { config } from '../config/env';
+
+const API_BASE_URL = config.apiBaseUrl;
 
 class AuthService {
   private static TOKEN_KEY = 'access_token';

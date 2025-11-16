@@ -5,6 +5,7 @@ import ChatSettingsModal from './ChatSettingsModal.tsx';
 import TypingIndicator from './TypingIndicator.tsx';
 import type { ChatMessage, SessionResponse, StreamRequest, ChatSettings } from '../types/chat.ts';
 import AuthService from '../services/auth.service';
+import { config } from '../config/env';
 
 interface ChatWindowProps {
   threadId: string;
@@ -13,7 +14,7 @@ interface ChatWindowProps {
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ 
   threadId, 
-  apiBaseUrl = 'http://localhost:8000' 
+  apiBaseUrl = config.apiBaseUrl 
 }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);

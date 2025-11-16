@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import ChatWindow from '../components/ChatWindow';
 import Sidebar from '../components/Sidebar';
 import { useAuth } from '../contexts/AuthContext';
+import { config } from '../config/env';
 
 function ChatApp() {
   const [currentThreadId, setCurrentThreadId] = useState<string | null>(null);
   const [key, setKey] = useState(0);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const apiBaseUrl = "http://localhost:8000";
+  const apiBaseUrl = config.apiBaseUrl;
 
   const generateNewThreadId = () => {
     return `thread-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
