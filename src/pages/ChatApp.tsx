@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import ChatWindow from '../components/ChatWindow';
 import Sidebar from '../components/Sidebar';
 import { useAuth } from '../contexts/AuthContext';
-import AuthService from '../services/auth.service';
 
 function ChatApp() {
   const [currentThreadId, setCurrentThreadId] = useState<string | null>(null);

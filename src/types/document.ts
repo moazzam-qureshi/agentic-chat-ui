@@ -1,9 +1,11 @@
-export enum IngestionStatus {
-  PENDING = 'pending',
-  PROCESSING = 'processing',
-  COMPLETED = 'completed',
-  FAILED = 'failed'
-}
+export const IngestionStatus = {
+  PENDING: 'pending',
+  PROCESSING: 'processing',
+  COMPLETED: 'completed',
+  FAILED: 'failed'
+} as const;
+
+export type IngestionStatus = typeof IngestionStatus[keyof typeof IngestionStatus];
 
 export interface Document {
   id: string;

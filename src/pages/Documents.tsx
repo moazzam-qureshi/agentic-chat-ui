@@ -19,7 +19,7 @@ type SortField = 'filename' | 'created_at' | 'file_size';
 type SortOrder = 'asc' | 'desc';
 
 const Documents: React.FC = () => {
-  const { user } = useAuth();
+  const { } = useAuth();
   const [documents, setDocuments] = useState<Document[]>([]);
   const [filteredDocuments, setFilteredDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ const Documents: React.FC = () => {
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [processingDocs, setProcessingDocs] = useState<Set<string>>(new Set());
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const ingestionCheckInterval = useRef<NodeJS.Timer | null>(null);
+  const ingestionCheckInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     fetchDocuments();
