@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  react-app-dev:
+    build:
+      context: .
+      target: development
+    container_name: react-vite-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./index.html:/app/index.html
+      - ./vite.config.ts:/app/vite.config.ts
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./tsconfig.node.json:/app/tsconfig.node.json
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
+
+  react-app-prod:
+    build:
+      context: .
+      target: production
+    container_name: react-vite-prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - production
